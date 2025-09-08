@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables, Functions, and DOM Manipulation</title>
+    <style>
+        /* Set the font for the entire page and add some spacing and background color */
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            transition: background-color 0.5s ease; /* Smooth transition for background color changes */
+        }
+        /* Container to center content and limit max width */
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        /* Style the button with padding, color, rounded corners, and shadow */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Times New Roman', serif;
+            cursor: cursor;
+            background-color: #1de2e9;
+            color: black;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 3px 3px 5px gray;
+            transition: background-color 0.3s; /* Smooth hover effect */
+        }
+        /* Change button background color on hover */
+        button:hover {
+            background-color: white;
+        }
+        /* Style paragraph text */
+        p {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <script>
+                // Activity 1: Variables and Functions
+                // Declare variables for name and age
+                const name = 'Althea';
+                const age = 21;
+
+                // Function to return a greeting string using template literals
+                function greetUser (name, age) {
+                    return `Hello, I am ${name} and I am ${age} years old.`;
+                }
+
+                // Write the greeting inside the <h1> tag
+                document.write(greetUser (name, age));
+            </script>
+        </h1>
+        <!-- Button to trigger background color change -->
+        <button id="colorButton">Change Color</button>
+        <!-- Paragraph to display the current background color -->
+        <p id="colorDisplay">The current background color is #f0f0f0</p>
+    </div>
+
+    <script>
+        // Activity 2: DOM Manipulation
+        // Get references to the button and paragraph elements
+        const button = document.getElementById('colorButton');
+        const colorDisplay = document.getElementById('colorDisplay');
+
+        // Function to generate a random hex color string
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                // Append a random character from letters to the color string
+                color += letters[Math.floor(Math.random() * 15)];
+            }
+            return color;
+        }
+
+        // Add click event listener to the button
+        button.addEventListener('click', function() {
+            // Activity 3: Debugging and Enhancement
+            console.log('Before color change: Background color is being updated. Get ready for a vibrant surprise!');
+            const newColor = getRandomColor(); // Generate a new random color
+            document.body.style.backgroundColor = newColor; // Change the page background color
+            colorDisplay.textContent = `The current background color is ${newColor}`; // Update the displayed color text
+            console.log(`After color change: Woot! The background is now a lovely ${newColor}. Enjoy the view!`);
+        });
+    </script>
+</body>
+</html> 
